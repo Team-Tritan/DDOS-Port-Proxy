@@ -12,7 +12,7 @@ let limit = {
 
 let requestCounts = new Map<string, number>();
 
-const tcpServer = net.createServer((socket) => {
+const proxy = net.createServer((socket) => {
   const remoteAddress = socket.remoteAddress as string;
 
   if (
@@ -53,6 +53,6 @@ const tcpServer = net.createServer((socket) => {
   });
 });
 
-tcpServer.listen(proxy_port, () => {
+proxy.listen(proxy_port, () => {
   console.log("TCP proxy listening on port ", proxy_port);
 });
