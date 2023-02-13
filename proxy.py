@@ -6,13 +6,13 @@ target_ports = [8080, 8081, 8082]  # server ports to load balance to
 proxy_port = 8069  # proxy port to listen on
 
 rate_limit = 10  # seconds
-buffer_size = 4096 # bytes
+buffer_size = 4096  # bytes
 
 listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_socket.bind(("", proxy_port))
 listen_socket.listen(5)
 
-request_count = 0 
+request_count = 0
 last_request_time = time.time()
 
 while True:
